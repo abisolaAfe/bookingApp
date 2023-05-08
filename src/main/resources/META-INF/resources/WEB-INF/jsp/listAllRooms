@@ -1,0 +1,29 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<html>
+     <title>Testing form page </title>
+	    <head>
+		        <title>Testing form page </title>
+		</head>
+				<body>
+				     <h1>ROOMS</h1>
+					<table>
+						<thead>
+								<tr>
+									<th>Room Number</th>
+									<th>rAvailable Time</th>
+									<th>BookingStatus </th>
+									<th>Clean Status</th>
+								</tr>
+						</thead>
+					<tbody>
+						<c:forEach items ="${allRooms}" var = "Rooms">
+							<tr>
+								<td>${Rooms.} </td>
+								<td> </td>
+								<td> </td>
+								<td> </td>
+							</tr>
+					</tbody>
+					</table>
+		  </body>
+</html>
