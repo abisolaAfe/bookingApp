@@ -1,6 +1,5 @@
 package com.mybookingApplication.New.Booking.Application.Entities;
 
-import java.time.LocalDateTime;
 
 
 import jakarta.persistence.Entity;
