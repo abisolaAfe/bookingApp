@@ -19,7 +19,7 @@ public class Rooms {
 	
 		@Id
 	private Long roomNumber;
-	private LocalDateTime roomAvailableTime;
+	private String roomAvailableTime;
 	private boolean bookingStatus;
 	private boolean cleanStatus;
 
@@ -35,7 +35,7 @@ public class Rooms {
 //	private Bookings booking;
 
 	public Rooms() {}
-	public Rooms(long roomNumber, LocalDateTime  roomAvailableTime ) {
+	public Rooms(long roomNumber, String  roomAvailableTime ) {
 		super();
 		this.roomNumber = roomNumber;
 		this. roomAvailableTime =  roomAvailableTime;
@@ -48,10 +48,10 @@ public class Rooms {
 	public void setRoomNumber(long roomNumber) {
 		this.roomNumber = roomNumber;
 	}
-	public LocalDateTime getRoomAvailableTime() {
+	public String getRoomAvailableTime() {
 		return roomAvailableTime;
 	}
-	public void setRoomAvailableTime(LocalDateTime roomAvailableTime) {
+	public void setRoomAvailableTime(String roomAvailableTime) {
 		this.roomAvailableTime = roomAvailableTime;
 	}
 	public boolean isBookingStatus() {

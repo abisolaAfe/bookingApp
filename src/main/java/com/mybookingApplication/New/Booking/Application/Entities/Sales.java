@@ -33,7 +33,7 @@ public class Sales {
 	private int price;
 	private int quantity;
 	private double amount;
-	private LocalDateTime timeOfSales;
+	private String timeOfSales;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	private long salesId;
@@ -43,7 +43,7 @@ public class Sales {
 
 
 	public Sales(Workers worker, Rooms room, String itemDescription, 
-			               int price, int quantity, LocalDateTime timeOfSales,double amount) {
+			               int price, int quantity, String timeOfSales,double amount) {
 		super();
 		this.worker = worker;
 		this.room = room;
@@ -53,7 +53,7 @@ public class Sales {
 		this.timeOfSales = timeOfSales;
 		this.amount = amount;
 	}
-	public Sales(Workers worker, String itemDescription, int price, int quantity, LocalDateTime timeOfSales,double amount) {
+	public Sales(Workers worker, String itemDescription, int price, int quantity, String timeOfSales,double amount) {
 super();
 this.worker = worker;
 this.itemDescription = itemDescription;
@@ -124,12 +124,12 @@ this.amount = amount;
 	}
 
 
-	public LocalDateTime getTimeOfSales() {
+	public String getTimeOfSales() {
 		return timeOfSales;
 	}
 
 
-	public void setTimeOfSales(LocalDateTime timeOfSales) {
+	public void setTimeOfSales(String timeOfSales) {
 		this.timeOfSales = timeOfSales;
 	}
 

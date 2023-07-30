@@ -1,23 +1,35 @@
 <html>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-		<head>
-		    <link href = "webjars/bootstrap/5.1.3/css/bootstrap.min.css" rel = "stylesheet">
-		<title>Login page </title>
-		</head>
-				<body>
-				<div class="container"class=center>
-				<h2>Enter Login Details</h2>
-				<hr>
-			<div> ${errorMessage}</div>
-				  <form method = "post" >
-		 <br>  Enter  username:  <input type = "text" name ="loginName"><br>
-	<br>	Enter   password: <input type = "password" name = "password"> <br>
-				<br>  <input type = submit class = "btn btn-SUCCESS" >	 <br> 
-				  </form>
-				  </div>
-				   <script src="webjars/bootstrap/5.1.3/js/bootstrap.min.js"></script>
-				   <script src="webjars/jquery/3.6.0/jquery.min.js"></script>
-				</body>
+                                 <%@ include file = "common/header.jspf" %>
+ <nav class = "navbar navbar-expand-md navbar-light bg-light mb-3 p-1 ">
+      	      <a class= "navbar-brand m-1" href= "https://afeezdigitalspace.netlify.app/" target="_blank"> Developer's Website</a>
+        	      <div class= "collapse navbar-collapse">
+		          	          <ul class="navbar-nav">
+		          	              <li class= "nav-item"><a class="nav-link" href="/discription" target="_blank">Discription</a>
+		          	          </ul>
+        	      </div>
+   </nav>
+											<div class="container col-md-4 col-md-offset-8" >
+											       <div class="card-body">
+											       <div class=card>
+													<h2 style="text-align: center;"> Login </h2>
+									                 <div style="text-align: center;"> ${errorMessage}</div>
+															    <form method = "post" >
+															                 <div style="text-align: center;">
+													                       <br>    username:  <input type = "text" name ="loginName"><br>
+													                       </div>
+													                           <div style="text-align: center;">
+												                           <br>   password: <input type = "password" name = "password"> <br>
+												                           </div>
+															               <div style="text-align: center;">
+															               <br>  <input type = submit class = "btn btn-SUCCESS"   style="display: inline-block;">	 <br> 
+															               </div>
+															                <div style="text-align: center;">
+															                <br><a href = "get-info">create an account</a><br>
+															                </div>
+															   </form>
+							                   </div>
+							                 </div>
+							                 </div>
+						  <%@ include file = "common/footer.jspf" %>
 		
 </html>

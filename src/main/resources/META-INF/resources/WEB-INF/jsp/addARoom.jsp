@@ -1,21 +1,14 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
-	<link href = "webjars/bootstrap/5.1.3/css/bootstrap.min.css" rel = "stylesheet">
-		<head>
-		<title>Add  Room </title>
-		</head>
-		
-				<body>
-				<div class="container">
-				    Add Room
+<%@ include file = "common/header.jspf" %>
+<%@ include file = "common/navigation.jspf" %>
+				<div class="container col-md-5 col-md-offset-8" >
+				   <h5  class="container center"> ADD  R00M</h5> 
+				    <hr/>
+				    <h5> ${roomAdded}</h5>
 				  <form method = "post" >
 			Room Number:	  <input type = "number" name ="roomNum">
 				  <input type = submit class = "btn btn-SUCCESS">
 				  </form>
 				  </div>
-				  <script src="webjars/bootstrap/5.1.3/js/bootstrap.min.js"></script>
-				 <script src="webjars/jquery/3.6.0/jquery.min.js"></script>
-				</body>
-		
+				<%@ include file = "common/footer.jspf" %>
 </html>

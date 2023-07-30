@@ -1,6 +1,15 @@
 package com.mybookingApplication.New.Booking.Application.Entities;
 
 
+import java.util.Collection;
+import java.util.List;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,7 +25,7 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 @Builder
-public class Workers {
+public class Workers  {
 
 	
 	@Id
@@ -24,6 +33,7 @@ public class Workers {
 	private long workersId ;
 	private String firstName ;
 	private String lastName;
+	
 	private String role;
 	@Column(unique=true)
 	private String loginName;
@@ -77,6 +87,9 @@ public class Workers {
 //	public void setPassword(String password) {
 //		this.password = password;
 //	}
+	
+
+	
 
 	
 

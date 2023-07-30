@@ -1,31 +1,33 @@
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"  %>
-<html>
-		<head>
-		 <link href = "webjars/bootstrap/5.1.3/css/bootstrap.min.css" rel = "stylesheet">
-		<title>BookingPage </title>
-		</head>
-				<body>
-				     <div class= "container">
-			<h1> Welcome ${lastName}</h1>
-			<hr>
+<%@ include file = "common/header.jspf" %>
+<%@ include file = "common/navigation.jspf" %>
+				     <div class="container col-md-5 col-md-offset-8">
+				     <div div class=card-body>
+			
 			 <form:form method="post" modelAttribute="booking">
-			 <div class="center" >Record a booking</div>
-		 <br>     Guest First Name:: <form:input type = "text" path= "guestFirstName" /><br>
-		 <br>     Guest Last Name:: <form:input type = "text" path= "guestLastName" /> <br>
-		  <br>    Guest Address:  <form:input type = "text" path="guestAddress" /><br>
+			 <h3 style="text-align: center;" >Record  Booking</h3>
+		 <br>     Guest First Name <form:input type = "text"   class='form-control' path= "guestFirstName" /><br>
+		 <br>     Guest Last Name <form:input type = "text"  class='form-control'  path= "guestLastName" /> <br>
+		  <br>    Guest Address  <form:input type = "text"  class='form-control' path="guestAddress" /><br>
 		                                   <form:input type = "hidden" path="checkingTime" />
 		                                  <form:input type = "hidden" path="checkOutTime" />
 		                                  <form:input type = "hidden" path="worker" />
 		                                  <form:input type = "hidden" path="room" />
-		     <br> Booking length:: <input type ="text" name= "duration" /><br>
-		  <br>    Room Number :: <input type ="text" name= "roomNumber" /><br>
-				<br>  <input type = submit class = "btn btn-SUCCESS" />	  
+		     <br> Booking length <input type ="text"   class='form-control' name= "duration" /><br>
+		  <br>   <div class= "container-center" >
+				             <label for="dropdown" class="center">Select a room</label>
+		                     <select name="roomNumber">
+		                     <c:forEach items ="${allRooms}" var = "Rooms">
+		                     <option value="${Rooms.roomNumber }"> ${Rooms.roomNumber}</option>
+		                     </c:forEach>
+		                     </select>
+                  </div>><br>
+				 <div style="text-align: center;">
+				<br>  <input type = submit class = "btn btn-SUCCESS m-0" />	 
+				</div> 
 				  </form:form>
 				        </div>
-				            <script src="webjars/bootstrap/5.1.3/js/bootstrap.min.js"></script>
-					      <script src="webjars/jquery/3.6.0/jquery.min.js"></script>
-				</body>
+				        </div>
+				        	<%@ include file = "common/footer.jspf" %>
 		
 </html>

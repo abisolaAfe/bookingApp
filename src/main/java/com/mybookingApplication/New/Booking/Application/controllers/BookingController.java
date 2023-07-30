@@ -27,9 +27,11 @@ public BookingController(BookingAppService bookingAppService) {
 //Workers worker, LocalDateTime checkingTime,  LocalDateTime checkOutTime
 @RequestMapping(value = "bookARoom", method = RequestMethod.GET)
 public String showRooms(ModelMap model) {
-	Bookings booking = (new Bookings("", "", "", bookingAppService.getOneRoom(1001l), bookingAppService.getWorkerById(1), 
-       LocalDateTime.now(), LocalDateTime.now().plusDays(1)));
+	Bookings booking = (new Bookings("", "", "", bookingAppService.getOneRoom(1001l), bookingAppService.getWorkerById(1000), 
+       LocalDateTime.now().toString(), LocalDateTime.now().plusDays(1).toString()));
 	String lastName = (String)model.get("lastName");
+	 List<Rooms>allRooms= bookingAppService.getAllRooms();
+     model.put("allRooms", allRooms);
 	model.put("lastName", lastName);
 	model.put("booking", booking);
 	return "bookingPage";
@@ -40,6 +42,10 @@ public String bookARoom(ModelMap model, Bookings booking, @RequestParam long dur
 	//long id =model.get(workerId);
 	bookingAppService.addBooking(booking.getGuestFirstName(), booking.getGuestLastName(), booking.getGuestAddress(),
 			                                                roomNumber, duration, model);
+	long id =0l;
+	 id = (long) model.get("workerId");
+	String lastName = bookingAppService.getWorkerById(id).getLastName();
+	model.put("lastName", lastName);
 	model.put("roomNumber",roomNumber);
 	//model.put("workerId",workerId);
 	return "redirect:bookings";

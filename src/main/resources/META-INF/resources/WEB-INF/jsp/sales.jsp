@@ -1,14 +1,8 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<html>
-	    <head>
-	        <link href = "webjars/bootstrap/5.1.3/css/bootstrap.min.css" rel = "stylesheet">
-		        <title>manage room cleaning</title>
-		</head>
-				<body>
+<%@ include file = "common/header.jspf" %>
+<%@ include file = "common/navigation.jspf" %>
 				    <div class= "container">
 						     <h1>Welcome ${lastName}</h1>
-						      <hr>
+						      
 							<table class = "table">
 								<thead>
 										<tr>
@@ -17,7 +11,7 @@
 											<th>Item Description </th>
 											<th>Price</th>
 											<th> Quantity  </th>
-											<th> Time  </th>
+											<th> Date & Time  </th>
 											<th> Amount  </th>
 										</tr>
 								</thead>
@@ -37,7 +31,5 @@
 							</table>
 								<a href = "add-sales" class = "btn btn-SUCCESS"> Add Sales</a>
 					</div>
-					     <script src="webjars/bootstrap/5.1.3/js/bootstrap.min.js"></script>
-					      <script src="webjars/jquery/3.6.0/jquery.min.js"></script>
-		  </body>
+<%@ include file = "common/footer.jspf" %>
 </html>

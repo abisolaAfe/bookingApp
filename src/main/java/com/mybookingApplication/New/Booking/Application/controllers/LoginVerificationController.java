@@ -25,13 +25,13 @@ public LoginVerificationController(BookingAppService bookingAppService) {
 	this.bookingAppService = bookingAppService;
 }
 
-@RequestMapping (value ="loginPage", method = RequestMethod.GET)
+@RequestMapping (value ="/", method = RequestMethod.GET)
 public String welcomePage() {
 	return "loginPage";
 	
 }
 
-@RequestMapping (value ="loginPage", method = RequestMethod.POST)
+@RequestMapping (value ="/", method = RequestMethod.POST)
 public String homePage(@RequestParam String loginName, @RequestParam String password, ModelMap model) {
 	String errPage = "";
 	if(bookingAppService.loginverify(loginName, password) ==true) {
@@ -88,7 +88,30 @@ public String waiterHomePage(ModelMap model) {
 	return "sales";
 }
 
+@RequestMapping(value="logout")
+public String logout(ModelMap model) {
+	return "redirect:/";
+}
 
+@RequestMapping(value="get-info")
+public String loginInfo(ModelMap model) {
+	return "loginInfo";
+}
 
+@RequestMapping(value="dashboard")
+public String dashboard(ModelMap model) {
+	 long id = (long) model.get("workerId");
+	String role = bookingAppService.getWorkerById(id).getRole();
+	if (role.equals("receptionist")){
+		return "redirect:receptionistHome";
+	}
+	else if (role.equals("cleaner")){
+		return "redirect:cleaning-homepage";
+	}
+	else if (role.equals("manager")){
+		return "redirect:managerHome";
+	}
+	return null;
+}
 	
 }

@@ -3,6 +3,7 @@ package com.mybookingApplication.New.Booking.Application.controllers;
 import java.time.LocalDateTime;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,10 +32,11 @@ public class RoomController {
 	}
     
 	@RequestMapping(value = "add-room", method = RequestMethod.POST)
-	public String addRoomPosting(@RequestParam long roomNum ) {
+	public String addRoomPosting(@RequestParam long roomNum, ModelMap model ) {
 
 		
 		bookingAppService.addRoom(roomNum,LocalDateTime.now());
+		model.put("roomAdded", "Room added succesfully");
 		return "addARoom";
 		
 		

@@ -28,16 +28,20 @@ private BookingAppService bookingAppService;
 //Workers worker, Rooms room, String itemDescription,  int price, int quantity, LocalDateTime timeOfSales,double amount)
 	@RequestMapping(value = "add-sales", method = RequestMethod.GET)
 	public String addSales(ModelMap model) {
-		Sales sale = (new Sales( bookingAppService.getWorkerById(1),bookingAppService.getOneRoom(1001l), "", 1,1,
-			LocalDateTime.now(),2.0));
+		Sales sale = (new Sales( bookingAppService.getWorkerById(1000),bookingAppService.getOneRoom(1001l), "", 1,1,
+			LocalDateTime.now().toString(),2.0));
 		 model.put("sale", sale);
+		 List<Rooms>allRooms= bookingAppService.getAllRooms();
+	      model.put("allRooms", allRooms);
 		return "addSales";
 	}
 	@RequestMapping (value = "add-sales", method = RequestMethod.POST)
-	  public String addingSales( ModelMap model,Sales sale,@RequestParam long roomNum) {
+	  public String addingSales( ModelMap model,Sales sale,@RequestParam long dropdown) {
 		//double amount = sale.getPrice()*sale.getQuantity();
-		bookingAppService.addOneSales(bookingAppService.getOneRoom(roomNum),sale.getItemDescription(),
+		bookingAppService.addOneSales(bookingAppService.getOneRoom(dropdown),sale.getItemDescription(),
 				sale.getPrice(),sale.getQuantity(),model);
+		
+		     
 		
 	 
 	return  "redirect:sales" ;

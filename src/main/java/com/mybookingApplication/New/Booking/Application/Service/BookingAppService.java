@@ -1,6 +1,7 @@
 package com.mybookingApplication.New.Booking.Application.Service;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Predicate;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.mybookingApplication.New.Booking.Application.Entities.Bookings;
 import com.mybookingApplication.New.Booking.Application.Entities.Cleaning;
+import com.mybookingApplication.New.Booking.Application.Entities.Role;
 import com.mybookingApplication.New.Booking.Application.Entities.Rooms;
 import com.mybookingApplication.New.Booking.Application.Entities.Sales;
 import com.mybookingApplication.New.Booking.Application.Entities.Workers;
@@ -49,7 +51,9 @@ public class BookingAppService {
 	}
 	
 	public void addRoom(long roomNum,LocalDateTime roomTime) {	
-		roomRepo.save(new Rooms(roomNum,roomTime));
+		String pattern = "yyyy-MM-dd"; // Customize the pattern according to your desired format
+		   DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
+		roomRepo.save(new Rooms(roomNum,   roomTime.format(formatter)));
 		}
 	public List<Rooms> getAllRooms() {
 		List<Rooms>allRooms = roomRepo.findAll() ;
@@ -88,7 +92,9 @@ public class BookingAppService {
 	   public void addOneSales( Rooms room,String description, int price, int quantity,ModelMap model) {
 		   double amount = price*quantity;
 		   long id = (long) model.get("workerId");
-		   saleRepo.save(new Sales(getWorkerById(id),room, description, price,quantity,LocalDateTime.now(), amount));
+		   String pattern = "yyyy-MM-dd"; // Customize the pattern according to your desired format
+		   DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
+		   saleRepo.save(new Sales(getWorkerById(id),room, description, price,quantity,LocalDateTime.now().format(formatter), amount));
 	
      }
 	   public void addCleaning(Rooms room, Workers worker,  LocalDateTime cleaningTime,boolean cleanStatus) {
@@ -131,8 +137,12 @@ public class BookingAppService {
 		  
 		   long id = 0; 
 		   id =  (long)model.get("workerId");
+		   String pattern = "yyyy-MM-dd HH:mm:ss"; // Customize the pattern according to your desired format
+		   DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
+		   
+
 		   bookingRepo.save(new Bookings(guestFirstName, guestLastName,guestAddress,getOneRoom(roomNum),getWorkerById(id),
-				                             LocalDateTime.now(),LocalDateTime.now().plusDays(duration)));
+				                             LocalDateTime.now().format(formatter),LocalDateTime.now().plusDays(duration).format(formatter)));
 		   getOneRoom(roomNum).setBookingStatus(true);
 		   roomRepo.save( getOneRoom(roomNum));
 		   
@@ -145,4 +155,7 @@ public class BookingAppService {
 			bookingRepo.delete(booking);
 			
 		 }
+		
+		 
+		 
 	}

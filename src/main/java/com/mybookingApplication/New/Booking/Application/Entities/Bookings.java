@@ -1,5 +1,6 @@
 package com.mybookingApplication.New.Booking.Application.Entities;
 
+
 import java.time.LocalDateTime;
 
 import jakarta.persistence.CascadeType;
@@ -34,12 +35,12 @@ public class Bookings {
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = " FK_Worker_Id")
 	private Workers worker;
-	private LocalDateTime checkingTime;
-	private LocalDateTime checkOutTime;
+	private String checkingTime;
+	private String checkOutTime;
 	public Bookings() {}
 	
 	public Bookings( String guestFirstName, String guestLastName, String guestAddress, Rooms room,
-			Workers worker, LocalDateTime checkingTime,  LocalDateTime checkOutTime) {
+			Workers worker, String checkingTime,  String checkOutTime) {
 		super();
 		this.guestFirstName = guestFirstName;
 		this.guestLastName = guestLastName;
@@ -91,19 +92,19 @@ public class Bookings {
 		this.guestAddress = guestAddress;
 	}
 
-	public LocalDateTime getCheckingTime() {
+	public String getCheckingTime() {
 		return checkingTime;
 	}
 
-	public void setCheckingTime(LocalDateTime checkingTime) {
+	public void setCheckingTime(String checkingTime) {
 		this.checkingTime = checkingTime;
 	}
 
-	public LocalDateTime getCheckOutTime() {
+	public String getCheckOutTime() {
 		return checkOutTime;
 	}
 
-	public void setCheckOutTime(LocalDateTime checkOutTime) {
+	public void setCheckOutTime(String checkOutTime) {
 		this.checkOutTime = checkOutTime;
 	}
 	
