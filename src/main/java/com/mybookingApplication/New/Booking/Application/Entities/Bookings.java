@@ -20,7 +20,6 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @Builder
-@NoArgsConstructor
 public class Bookings {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	

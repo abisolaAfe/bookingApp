@@ -3,8 +3,6 @@ package com.mybookingApplication.New.Booking.Application.Service;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Optional;
-import java.util.function.Predicate;
 
 import org.springframework.stereotype.Service;
 import org.springframework.ui.ModelMap;
@@ -12,7 +10,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.mybookingApplication.New.Booking.Application.Entities.Bookings;
 import com.mybookingApplication.New.Booking.Application.Entities.Cleaning;
-import com.mybookingApplication.New.Booking.Application.Entities.Role;
 import com.mybookingApplication.New.Booking.Application.Entities.Rooms;
 import com.mybookingApplication.New.Booking.Application.Entities.Sales;
 import com.mybookingApplication.New.Booking.Application.Entities.Workers;

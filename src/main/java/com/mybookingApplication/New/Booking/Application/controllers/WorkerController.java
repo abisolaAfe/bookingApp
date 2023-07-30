@@ -5,11 +5,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
-import com.mybookingApplication.New.Booking.Application.Entities.Role;
 import com.mybookingApplication.New.Booking.Application.Service.BookingAppService;
-import com.mybookingApplication.New.Booking.Application.security.SpringSecurityConfiguration;
 
 @Controller
 public class WorkerController {
