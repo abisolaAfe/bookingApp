@@ -1,6 +1,5 @@
 package com.mybookingApplication.New.Booking.Application.Entities;
 
-import java.time.LocalDateTime;
 
 
 import jakarta.persistence.CascadeType;
@@ -13,10 +12,12 @@ import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
 public class Sales {
 

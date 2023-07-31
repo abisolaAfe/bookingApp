@@ -4,7 +4,7 @@
       	      <a class= "navbar-brand m-1" href= "https://afeezdigitalspace.netlify.app/" target="_blank"> Developer's Website</a>
         	      <div class= "collapse navbar-collapse">
 		          	          <ul class="navbar-nav">
-		          	              <li class= "nav-item"><a class="nav-link" href="/discription" target="_blank">Discription</a>
+		          	              <li class= "nav-item"><a class="nav-link" href="/discription" >Discription</a>
 		          	          </ul>
         	      </div>
    </nav>
